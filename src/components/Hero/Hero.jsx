@@ -44,8 +44,8 @@ function Hero({ playRainSound, playSummerSound }) {
   return (
     <div className="hero">
       <p className="under-construction">
-        This website is currently under construction, but in the meantime, feel free to explore the weather updates.
-      </p>
+      This website is a work in progress, but while I build something amazing, enjoy exploring the weather updates paired with soothing ambient sounds!
+            </p>
 
       <div className="hero__weather">
         {/* Search box */}
