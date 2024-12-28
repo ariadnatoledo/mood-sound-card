@@ -1,0 +1,11 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/global" as *;
+
+.hero {
+    &__title {
+        background: green;
+        color: white;
+    }
+}

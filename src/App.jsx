@@ -1,16 +1,18 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Header from "./components/Header/Header"
-import "./App.scss"
-function App() {
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
+import HomePage from "./pages/HomePage/HomePage";
+import "./App.scss";
 
+
+function App() {
   return (
     <BrowserRouter>
-    <Header />
-     <Routes>
-      <Route/>
-     </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
