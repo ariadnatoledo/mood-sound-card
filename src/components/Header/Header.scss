@@ -1,0 +1,10 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+
+.header {
+    &__title {
+        color:aquamarine;
+    }
+} 
+
