@@ -33,9 +33,8 @@ function Hero() {
 
   return (
     <div className="hero">
-      <h1 className="hero__title">Weather Section</h1>
 
-      <div>
+      <div className="hero__weather">
         {/* Search box */}
         <input
           type="text"
@@ -49,25 +48,23 @@ function Hero() {
       {error && <p className="error">{error}</p>}
 
       {weather.name && (
-        <>
-          <p>{weather.name}</p>
+        <div className="weather-info">
+          <p className="city-name">{weather.name}</p>
 
-          <p>Temperature: 
-             {weather.main && weather.main.temp
-              ? `${weather.main.temp}°C`
-              : "Temperature data not available"}
+          <p className="temperature">
+            Temperature: {weather.main && weather.main.temp ? `${weather.main.temp}°C` : "Temperature data not available"}
           </p>
 
           {weather.main && (
             <>
-              <p>Humidity: {weather.main.humidity}%</p>
+              <p className="humidity">Humidity: {weather.main.humidity}%</p>
             </>
           )}
 
           {weather.weather && weather.weather[0] && (
-            <p>({weather.weather[0].description})</p>
+            <p className="description">({weather.weather[0].description})</p>
           )}
-        </>
+        </div>
       )}
     </div>
   );
