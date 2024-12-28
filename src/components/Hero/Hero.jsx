@@ -6,7 +6,7 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
-function Hero({ playRainSound }) {
+function Hero({ playRainSound, playSummerSound }) {
   const [search, setSearch] = useState("");
   const [weather, setWeather] = useState({});
   const [error, setError] = useState(null);
@@ -20,10 +20,15 @@ function Hero({ playRainSound }) {
           console.log(result);
           setError(null);
 
-          
-          const weatherCondition = result.weather[0].main.toLowerCase();
-          if (weatherCondition === "rain" || weatherCondition === "light rain" || weatherCondition === "shower rain") {
+          const weatherConditionMain = result.weather[0].main.toLowerCase();
+          const weatherConditionDesc = result.weather[0].description.toLowerCase();
+
+          if (weatherConditionMain === "rain" || weatherConditionDesc.includes("rain")) {
             playRainSound(); 
+          } else if (weatherConditionMain === "clear" || weatherConditionDesc.includes("clear" || "few")) {
+            playSummerSound();
+          } else if (weatherConditionMain === "clouds" || "few" && weatherConditionDesc.includes("broken" || "clouds" || "overcast" || "few")) {
+            playSummerSound(); 
           }
         } else {
           setError(result.message);
