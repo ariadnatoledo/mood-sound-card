@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import "./Hero.scss";
 import { useState } from "react";
 
@@ -7,7 +6,7 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
-function Hero() {
+function Hero({ playRainSound }) {
   const [search, setSearch] = useState("");
   const [weather, setWeather] = useState({});
   const [error, setError] = useState(null);
@@ -18,8 +17,14 @@ function Hero() {
       .then((result) => {
         if (result.cod === 200) {
           setWeather(result);
-          setError(null);
           console.log(result);
+          setError(null);
+
+          
+          const weatherCondition = result.weather[0].main.toLowerCase();
+          if (weatherCondition === "rain" || weatherCondition === "light rain" || weatherCondition === "shower rain") {
+            playRainSound(); 
+          }
         } else {
           setError(result.message);
           setWeather({});
@@ -33,9 +38,9 @@ function Hero() {
 
   return (
     <div className="hero">
-
-<p className="under-construction">
-This website is currently under construction, but in the meantime, feel free to explore the weather updates.      </p>
+      <p className="under-construction">
+        This website is currently under construction, but in the meantime, feel free to explore the weather updates.
+      </p>
 
       <div className="hero__weather">
         {/* Search box */}
@@ -44,7 +49,6 @@ This website is currently under construction, but in the meantime, feel free to 
           placeholder="Enter city/town..."
           onChange={(e) => setSearch(e.target.value)}
         />
-
         <button onClick={searchPressed}>Search</button>
       </div>
 
@@ -74,3 +78,4 @@ This website is currently under construction, but in the meantime, feel free to 
 }
 
 export default Hero;
+
