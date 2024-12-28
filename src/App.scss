@@ -1,6 +1,13 @@
 @use "./styles/mixins" as *;
 @use "./styles/typography" as *;
 @use "./styles/variables" as *;
+@use "./styles/global" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html, body {
   font-family: "Raleway";
