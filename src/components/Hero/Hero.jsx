@@ -34,6 +34,9 @@ function Hero() {
   return (
     <div className="hero">
 
+<p className="under-construction">
+This website is currently under construction, but in the meantime, feel free to explore the weather updates.      </p>
+
       <div className="hero__weather">
         {/* Search box */}
         <input

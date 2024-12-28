@@ -4,8 +4,8 @@
 @use "../../styles/global" as *;
 
 .header {
+  padding: 1rem;
   &__title {
-    background: red;
     color: white;
   }
 }

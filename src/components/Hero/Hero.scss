@@ -4,43 +4,57 @@
 @use "../../styles/global" as *;
 
 .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: black;
+  min-height: 80vh;
+  justify-content: center;
+  position: relative;
+
+  &__weather {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: black;
-    // min-height: 100vh;
-    &__weather {
-        display: flex;
-        gap: 16px;
-    }
+    gap: 16px;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
   }
-  
+
   .hero__title {
     font-size: 2rem;
     margin-bottom: 20px;
     color: white;
     font-weight: bold;
+    animation: fadeIn 1.5s ease-out forwards;
   }
-  
+
+  .under-construction {
+    color: white;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards 1s;
+  }
+
   input {
     font-family: "Raleway";
-    padding: 3px;
+    padding: 10px;
     font-size: 14px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 200px;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards 1.5s;
 
     &::placeholder {
-        font-family: "Raleway";
-        font-size: 12px;
+      font-family: "Raleway";
+      font-size: 12px;
     }
   }
-  
+
   button {
     font-family: "Raleway";
-    padding: 3px;
+    padding: 10px;
     font-size: 14px;
     cursor: pointer;
     border: 1px solid white;
@@ -48,18 +62,20 @@
     color: white;
     border-radius: 5px;
     margin: 10px 0;
-  
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards 1.5s;
+
     &:hover {
       background-color: #666;
     }
   }
-  
+
   .error {
     color: red;
     font-weight: bold;
     margin-top: 10px;
   }
-  
+
   .weather-info {
     margin-top: 20px;
     background-color: black;
@@ -68,23 +84,39 @@
     border-radius: 10px;
     text-align: center;
     width: 250px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 1.3s ease-out forwards 2s;
   }
-  
+
   .weather-info p {
     color: #666;
   }
-  
+
   .weather-info p.temperature {
     font-weight: bold;
     color: #333;
   }
-  
+
   .weather-info p.description {
     font-style: italic;
     color: #333;
   }
-  
+
   .weather-info p.humidity {
     color: #666;
   }
-  
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
