@@ -10,6 +10,10 @@
     flex-wrap: wrap;
     padding: 1rem;
     gap: 10px;
+
+    &__subtitle--1 {
+        padding-top: 1rem;
+    }
 }
 
 .about__container {
@@ -21,10 +25,9 @@
     margin-bottom: 2rem;
     width: 100%;
     max-width: 800px;
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0); 
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    animation: fadeInUp 1s ease-out forwards; 
 
     &--image {
         background-image: url('../../assets/images/your-image.jpg');
@@ -40,7 +43,7 @@
 
     &--bio {
         background-color: black;
-        color: #666;
+        color: white;
         border: 1px solid white;
     }
 
@@ -48,8 +51,7 @@
         background-color: black;
         color: #666;
         text-align: center;
-        animation: fadeInUp 1s ease-out forwards;
-        animation-delay: 0.9s; 
+        opacity: 1;
     }
 }
 
@@ -79,20 +81,19 @@
     border-radius: 5px;
     padding: 0.8rem 1.2rem;
     margin: 0.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease-out forwards; 
+    opacity: 1; 
+    transform: translateY(0); 
+    animation: fadeInUp 1s ease-out forwards;
 }
-
 
 .about__item--sm {
     font-size: 0.9rem;
-    animation-delay: 0.1s; 
+    animation-delay: 0.1s;
 }
 
 .about__item--med {
     font-size: 1rem;
-    animation-delay: 0.2s; 
+    animation-delay: 0.2s;
 }
 
 .about__marker {
@@ -104,9 +105,8 @@
     margin: 5px;
     display: inline-block;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    opacity: 0;
-    transform: translateY(10px); 
-
+    opacity: 1; 
+    transform: translateY(0); 
     animation: markerFadeInUp 0.6s ease-out forwards;
 
     &:hover {
@@ -122,7 +122,7 @@
 
 .about__item--med .about__marker {
     font-size: 16px;
-    animation-delay: 0.2s; 
+    animation-delay: 0.2s;
 }
 
 @keyframes markerFadeInUp {
@@ -136,7 +136,6 @@
     }
 }
 
-
 .about__container:hover {
     transform: translateY(0);
     opacity: 1;
@@ -146,7 +145,40 @@
     background-color: #666;
 }
 
-@keyframes fadeInUp {
+strong {
+    color: #cda815;
+    display: inline-block;
+    opacity: 0; 
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 1s; 
+}
+
+.exclamation {
+    display: inline-block;
+    opacity: 0; 
+    animation: moveDown 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+.tools {
+    display: inline-block;
+    opacity: 0; 
+    animation: moveUp 1s ease-out forwards;
+    animation-delay: 2s; 
+}
+
+@keyframes moveDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveUp {
     0% {
         opacity: 0;
         transform: translateY(30px);
