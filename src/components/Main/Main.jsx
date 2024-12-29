@@ -1,9 +1,10 @@
 import "./Main.scss";
+import { Link } from "react-router-dom";
 
 function Main() {
   return (
     <div className="main">
-      {/* <h1 className="main__title">Main Section</h1> */}
+      <Link to="/about" className="main__about">About</Link>
     </div>
   )
 }

@@ -4,7 +4,19 @@
 @use "../../styles/global" as *;
 
 .main {
+  padding: 1rem;
   &__title {
     color: white;
+  }
+  &__about {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+@include tablet {
+  .main {
+    padding: 1rem 2rem;
   }
 }
