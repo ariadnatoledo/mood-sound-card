@@ -1,0 +1,25 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/global" as *;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid white;
+  &__title {
+    color: white;
+  }
+  &__subtitle {
+    color: white;
+  }
+}
+
+@include tablet {
+  .footer {
+    padding: 1rem 2rem;
+  }
+}
