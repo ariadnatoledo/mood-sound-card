@@ -1,13 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import "./App.scss";
-
-// const api = {
-//   key: "67fc54d54aeffd93c65624f2c90222dc",
-//   base: "https://api.openweathermap.org/data/2.5/",
-// };
-
+import Footer from "./components/Footer/Footer";
+import AboutPage from "./pages/AboutPage/AboutPage";
 
 function App() {
   return (
@@ -15,7 +11,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

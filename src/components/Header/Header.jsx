@@ -1,11 +1,14 @@
 import "./Header.scss"
-
+import { Link } from "react-router-dom"
+import logoAri from "../../assets/logo/ari-logo.png"
 
 function Header() {
   return (
-    <div className="header">
-    <header className="header__title">Ariadna Toledo - Software Engineer</header>
-    </div>
+    <header className="header">
+      <Link to="/">
+    <img src={logoAri} alt="Ariadna Toledo Software Logo" className="header__title" />
+    </Link>
+  </header>
   )
 }
 

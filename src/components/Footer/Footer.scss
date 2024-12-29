@@ -3,17 +3,23 @@
 @use "../../styles/variables" as *;
 @use "../../styles/global" as *;
 
-.header {
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
+  border-top: 1px solid white;
   &__title {
     color: white;
-    width: 50px;
-    height: auto;
+  }
+  &__subtitle {
+    color: white;
   }
 }
 
 @include tablet {
-  .header {
+  .footer {
     padding: 1rem 2rem;
   }
 }
