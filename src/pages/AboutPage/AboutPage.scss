@@ -4,7 +4,162 @@
 @use "../../styles/global" as *;
 
 .about {
-    &__title {
-        color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 10px;
+}
+
+.about__container {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    animation: fadeInUp 1s ease-out forwards; 
+
+    &--image {
+        background-image: url('../../assets/images/your-image.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 250px;
+        color: #666;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &--bio {
+        background-color: black;
+        color: #666;
+        border: 1px solid white;
+    }
+
+    &--list {
+        background-color: black;
+        color: #666;
+        text-align: center;
+        animation: fadeInUp 1s ease-out forwards;
+        animation-delay: 0.9s; 
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about__list {
+    list-style: none;
+    border-radius: 5px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.about__item {
+    background-color: black;
+    color: #666;
+    border-radius: 5px;
+    padding: 0.8rem 1.2rem;
+    margin: 0.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards; 
+}
+
+
+.about__item--sm {
+    font-size: 0.9rem;
+    animation-delay: 0.1s; 
+}
+
+.about__item--med {
+    font-size: 1rem;
+    animation-delay: 0.2s; 
+}
+
+.about__marker {
+    background-color: black;
+    color: #666;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px); 
+
+    animation: markerFadeInUp 0.6s ease-out forwards;
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: #cda815;
+    }
+}
+
+.about__item--sm .about__marker {
+    font-size: 14px;
+    animation-delay: 0.1s;
+}
+
+.about__item--med .about__marker {
+    font-size: 16px;
+    animation-delay: 0.2s; 
+}
+
+@keyframes markerFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.about__container:hover {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.about__item:hover {
+    background-color: #666;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@include tablet {
+    .about {
+        padding: 1rem 2rem;
+        flex-wrap: nowrap;
     }
 }
