@@ -63,7 +63,7 @@ function Hero({ playRainSound, playSummerSound, playHazeSound }) {
   return (
     <div className="hero">
       <p className="under-construction">
-        This website is a work in progress, but while I build something amazing, enjoy exploring the weather updates paired with soothing ambient sounds!
+        Hi there! Before you start digging my website, get in the mood, check your local weather and enjoy some ambient sounds.
       </p>
 
       <div className="hero__weather">
