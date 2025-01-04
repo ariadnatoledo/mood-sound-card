@@ -3,6 +3,42 @@
 @use "../../styles/variables" as *;
 @use "../../styles/global" as *;
 
-.portfolio {
+.portfolio-page {
     color: white;
-}
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .project-card {
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background: lightgray;
+    transition: transform 0.3s ease-in-out;
+  
+    &.unlocked {
+      background: lightgreen;
+    }
+  
+    &.locked {
+      background: lightcoral;
+      pointer-events: none;
+    }
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

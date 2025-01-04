@@ -5,6 +5,7 @@ import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import Portfolio from "./pages/Portfolio/Portfolio";
+import GamePage from "./pages/GamePage/GamePage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/game" element={<GamePage />} /> {/* Add game route */}
       </Routes>
       <Footer />
     </BrowserRouter>
