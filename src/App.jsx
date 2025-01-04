@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import AboutPage from "./pages/AboutPage/AboutPage";
+import Portfolio from "./pages/Portfolio/Portfolio";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <Footer />
     </BrowserRouter>
