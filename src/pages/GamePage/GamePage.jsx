@@ -5,50 +5,98 @@ import { useNavigate } from "react-router-dom";
 
 function GamePage() {
   const { currentLevel, setCurrentLevel, unlockProject } = useGameState();
-  const navigate = useNavigate(); // Used for redirection after win
-  
-  // Tic-Tac-Toe state
-  const [board, setBoard] = useState(Array(9).fill(null)); // 3x3 grid
-  const [xIsNext, setXIsNext] = useState(true); // X starts
-  const [winner, setWinner] = useState(null); // Store the winner
-  const [isWinning, setIsWinning] = useState(false); // Flag to handle the win display
-  
-  // Handle clicking on squares
-  const handleClick = (index) => {
-    if (board[index] || winner) return; // Don't allow clicking if the spot is filled or game is over
-    const newBoard = [...board];
-    newBoard[index] = xIsNext ? 'X' : 'O'; // Place X or O on the board
-    setBoard(newBoard);
-    setXIsNext(!xIsNext); // Switch turns
+  const navigate = useNavigate();
 
-    // Check if someone won after the move
-    checkWinner(newBoard);
+  const [board, setBoard] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = useState(true); // Player is X
+  const [winner, setWinner] = useState(null);
+
+  // Helper function to check if a move wins
+  const isWinningMove = (board, player) => {
+    const winningCombinations = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6],
+    ];
+    return winningCombinations.some(combo =>
+      combo.every(index => board[index] === player)
+    );
   };
 
-  // Check if there's a winner
-  const checkWinner = (board) => {
-    const winningCombinations = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-      [0, 4, 8], [2, 4, 6],            // Diagonals
-    ];
+  // Minimax algorithm for decision-making
+  const minimax = (board, isMaximizing) => {
+    const availableSpots = board.map((val, idx) => (val === null ? idx : null)).filter(val => val !== null);
 
-    for (let combo of winningCombinations) {
-      const [a, b, c] = combo;
-      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        setWinner(board[a]); // Declare winner
-        unlockProject(currentLevel); // Unlock the current level
-        setCurrentLevel(prevLevel => prevLevel + 1); // Move to next level
-        setIsWinning(true); // Set the winning state
-        setTimeout(() => {
-          navigate("/portfolio"); // Redirect after a brief delay
-        }, 2000); // Redirect after 2 seconds for the player to see the win message
-        break;
+    // Check terminal states
+    if (isWinningMove(board, 'O')) return { score: 10 }; // AI wins
+    if (isWinningMove(board, 'X')) return { score: -10 }; // Player wins
+    if (availableSpots.length === 0) return { score: 0 }; // Draw
+
+    let bestMove;
+    if (isMaximizing) {
+      let maxEval = -Infinity;
+      for (const spot of availableSpots) {
+        const newBoard = [...board];
+        newBoard[spot] = 'O';
+        const evaluation = minimax(newBoard, false).score;
+        if (evaluation > maxEval) {
+          maxEval = evaluation;
+          bestMove = spot;
+        }
+      }
+      return { score: maxEval, index: bestMove };
+    } else {
+      let minEval = Infinity;
+      for (const spot of availableSpots) {
+        const newBoard = [...board];
+        newBoard[spot] = 'X';
+        const evaluation = minimax(newBoard, true).score;
+        if (evaluation < minEval) {
+          minEval = evaluation;
+          bestMove = spot;
+        }
+      }
+      return { score: minEval, index: bestMove };
+    }
+  };
+
+  // Handle player's move
+  const handleClick = (index) => {
+    if (board[index] || winner || !xIsNext) return;
+    const newBoard = [...board];
+    newBoard[index] = 'X';
+    setBoard(newBoard);
+    setXIsNext(false); // Switch to computer's turn
+
+    if (isWinningMove(newBoard, 'X')) {
+      setWinner('X');
+    }
+  };
+
+  // Computer's move
+  const computerMove = () => {
+    const { index } = minimax(board, true);
+    if (index !== undefined) {
+      const newBoard = [...board];
+      newBoard[index] = 'O';
+      setBoard(newBoard);
+      setXIsNext(true);
+
+      if (isWinningMove(newBoard, 'O')) {
+        setWinner('O');
       }
     }
   };
 
-  // Render the square
+  // Automatically trigger computer's turn
+  useEffect(() => {
+    if (!xIsNext && !winner) {
+      const timer = setTimeout(() => computerMove(), 500); // Delay for better UX
+      return () => clearTimeout(timer);
+    }
+  }, [xIsNext, winner, board]);
+
+  // Render a square
   const renderSquare = (index) => (
     <button className="square" onClick={() => handleClick(index)}>
       {board[index]}
@@ -60,14 +108,13 @@ function GamePage() {
       <h2>Current Level: {currentLevel}</h2>
       <h3>
         {winner
-          ? `CONGRATULATIONS!!!! ${winner} Wins!`
-          : `Next Player: ${xIsNext ? 'X' : 'O'}`}
+          ? `CONGRATULATIONS! ${winner} Wins!`
+          : `Next Player: ${xIsNext ? 'X (Player)' : 'O (Computer)'}`}
       </h3>
-      {isWinning && <h3 className="win-message">You won!</h3>} {/* Winning message */}
       <div className="board">
-        {[0, 1, 2].map((row) => (
+        {[0, 1, 2].map(row => (
           <div key={row} className="row">
-            {[0, 1, 2].map((col) => renderSquare(row * 3 + col))}
+            {[0, 1, 2].map(col => renderSquare(row * 3 + col))}
           </div>
         ))}
       </div>
