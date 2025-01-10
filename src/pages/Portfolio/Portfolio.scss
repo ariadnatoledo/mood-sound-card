@@ -10,7 +10,7 @@
   justify-content: center;
   text-align: center;
   padding: 30px;
-  background-color: #f7f7f7;
+  background-color: black;
   min-height: 100vh;
   box-sizing: border-box;
 
@@ -32,18 +32,21 @@
   }
 
   &__start-button {
-    // font-size: 1.2rem;
-    color: white;
-    background-color: #4CAF50;
-    padding: 15px 30px;
+    margin-top: 20px;
+    background-color: black;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn ease-out forwards 2s;
+    color: #333;
     text-decoration: none;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 
     &:hover {
-      background-color: #45a049;
+      // background-color: #45a049;
       transform: translateY(-3px);
     }
 
@@ -60,6 +63,7 @@
     width: 100%;
     max-width: 1200px;
     padding: 0 20px;
+    
   }
 
   &__project-card-container {
