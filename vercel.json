@@ -6,7 +6,7 @@
         },
         {
             "src": "/about",
-            "dest": "/about"
+            "dest": "/"
         }
     ]
 }
