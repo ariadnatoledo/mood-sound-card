@@ -10,7 +10,8 @@ export function GameStateProvider({ children }) {
 
   // Function to unlock projects based on user progress
   const unlockProject = (projectId) => {
-    setUnlockedProjects((prev) => [...prev, projectId]);
+    setUnlockedProjects([1, 2, 3]);  // Add all the project levels here
+    // setUnlockedProjects((prev) => [...prev, projectId]);
   };
 
   return (

@@ -4,41 +4,153 @@
 @use "../../styles/global" as *;
 
 .portfolio-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &__description {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 800px;
+    line-height: 1.5;
+  }
+
+  &__start-button {
+    font-size: 1.2rem;
     color: white;
-    text-align: center;
-    padding: 2rem;
+    background-color: #4CAF50;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #45a049;
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
   }
-  
-  .projects {
+
+  &__projects {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
   }
-  
-  .project-card {
-    padding: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    background: lightgray;
-    transition: transform 0.3s ease-in-out;
-  
-    &.unlocked {
-      background: lightgreen;
-    }
-  
-    &.locked {
-      background: lightcoral;
-      pointer-events: none;
-    }
-  
+
+  &__project-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+
     &:hover {
       transform: scale(1.05);
     }
   }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+}
+
+.project-card {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  &.unlocked {
+    border-color: #4CAF50;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+    h3 {
+      color: #4CAF50;
+    }
+
+    a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: #4CAF50;
+        color: white;
+      }
+    }
   }
-  
+
+  &.locked {
+    background-color: #f4f4f4;
+    border-color: #bbb;
+
+    h3 {
+      color: #888;
+    }
+
+    button {
+      background-color: #ddd;
+      color: #888;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: not-allowed;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 1.1rem;
+    cursor: not-allowed;
+    transition: background-color 0.3s;
+  }
+}

@@ -1,11 +1,13 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
-import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import GamePage from "./pages/GamePage/GamePage";
+import ProjectDetailsPage from "./pages/ProjectDetailsPage/ProjectDetailsPage";  
+import "./App.scss";
+
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/portfolio/game" element={<GamePage />} /> {/* Add game route */}
+        <Route path="/portfolio/:id" element={<ProjectDetailsPage />} /> 
+        <Route path="/portfolio/game" element={<GamePage />} /> 
       </Routes>
       <Footer />
     </BrowserRouter>
@@ -23,3 +26,4 @@ function App() {
 }
 
 export default App;
+
