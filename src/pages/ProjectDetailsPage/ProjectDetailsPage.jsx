@@ -20,13 +20,20 @@ function ProjectDetailsPage() {
     },
     2: {
       title: "InStock",
-      description: "Detailed description of Project 2",
-      imageUrl: "/path/to/image2.jpg",
+      description: "InStock is a full-stack React application brought to life by an Agile team of developers, to deliver a mock Inventory Management System for a Fortune 500 Client. The goal is to deliver a time-sensitive, full stack application with a modern React front-end communicating with a robust Express back-end. This project was managed with a JIRA Scrum board and a design tool called Figma to deliver the style guides and mockups.",
+      imageUrl: "/public/images/instock-mob.png",
+      tech: "REACT, JAVASCRIPT, EXPRESS, NODE, AXIOS, MySQL, SASS",
+      clientUrl: "https://github.com/ariadnatoledo/dashing-doves-instock",
+      serverUrl: "https://github.com/ariadnatoledo/dashing-doves-instock-api"
     },
     3: {
       title: "Vinyl-O",
-      description: "Detailed description of Project 3",
-      imageUrl: "/path/to/image3.jpg",
+      description: "Developed a full-stack social media platform, managing the database (MySQL), server (Express), and client-side (React.js). Wrote technical documentation, resolved bugs, and troubleshoot issues to ensure the platform ran smoothly.",
+      imageUrl: "/public/images/vinilo-demo.png",
+      tech: "REACT, JAVASCRIPT, EXPRESS, NODE, MySQL, SOCKET.IO, BCRYPT, MULTER, SASS",
+      clientUrl: "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone",
+      serverUrl: "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone-api/tree/develop"
+
     },
   }[id];
 
