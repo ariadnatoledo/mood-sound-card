@@ -56,21 +56,21 @@
     }
   
     &--locked {
-      background-color: #f4f4f4;
-      border-color: #bbb;
+      border-color: #333;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  
   
       .project-card__title {
-        color: #888;
+        color: #333;
       }
   
       .project-card__button {
-        background-color: #ddd;
-        color: #888;
-        border: none;
+        background-color: black;
+        color: #333;
+        border: 1px solid white;
+        border-radius: 10px;
   
-        &:hover {
-          background-color: #ddd;
-        }
+       
       }
     }
   }

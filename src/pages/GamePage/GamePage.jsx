@@ -82,7 +82,7 @@ function GamePage() {
       .filter(val => val !== null);
 
     // Decide if the computer should play strategically or randomly
-    const playRandom = Math.random() < 0.3; // 30% chance to play randomly
+    const playRandom = Math.random() < 0.2; // 30% chance to play randomly
 
     let moveIndex;
 
