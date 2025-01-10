@@ -21,4 +21,4 @@ export function GameStateProvider({ children }) {
   );
 }
 
-export const useGameState = () => useContext(GameStateContext); // Custom hook to use the context
+export const useGameState = () => useContext(GameStateContext); 
