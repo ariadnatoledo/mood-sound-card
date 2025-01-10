@@ -7,6 +7,18 @@
         {
             "src": "/about",
             "dest": "/"
+        },
+        {
+            "src": "/portfolio",
+            "dest": "/"
+        },
+        {
+            "src": "/portfolio/:id",
+            "dest": "/"
+        },
+        {
+            "src": "/portfolio/game",
+            "dest": "/"
         }
     ]
 }
