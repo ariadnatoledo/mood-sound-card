@@ -29,7 +29,7 @@ function ProjectDetailsPage() {
     3: {
       title: "Vinyl-O",
       description: "Developed a full-stack social media platform, managing the database (MySQL), server (Express), and client-side (React.js). Wrote technical documentation, resolved bugs, and troubleshoot issues to ensure the platform ran smoothly.",
-      imageUrl: "/images/vinilo-demo.png",
+      imageUrl: "/images/vinilo-mobs.png",
       tech: "REACT, JAVASCRIPT, EXPRESS, NODE, MySQL, SOCKET.IO, BCRYPT, MULTER, SASS",
       clientUrl: "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone",
       serverUrl: "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone-api/tree/develop"
