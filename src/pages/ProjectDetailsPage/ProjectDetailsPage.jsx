@@ -11,7 +11,7 @@ function ProjectDetailsPage() {
       title: "BrainFlix",
       description:
         "This project involved building a responsive video streaming platform prototype with React and a custom-built REST API. I developed the back-end API to handle CRUD operations for video data, including endpoints for retrieving video details, adding new videos, and serving static assets. On the front end, I integrated the API with React, implemented multi-page routing, and added video upload functionality with form validation. I learned how to design REST APIs, manage JSON data persistence, and connect a React app with a custom back-end for a seamless user experience. This project enhanced my understanding of full-stack development and scalable architecture.",
-      imageUrl: "/public/images/BrainFlix-laptop.png",
+      imageUrl: "/images/BrainFlix-laptop.png",
       tech: "REACT, NODE, EXPRESS, REST APIs, SASS",
       clientUrl:
         "https://github.com/ariadnatoledo/ariadna-toledo-brainflix/tree/main/client",
@@ -21,7 +21,7 @@ function ProjectDetailsPage() {
     2: {
       title: "InStock",
       description: "InStock is a full-stack React application brought to life by an Agile team of developers, to deliver a mock Inventory Management System for a Fortune 500 Client. The goal is to deliver a time-sensitive, full stack application with a modern React front-end communicating with a robust Express back-end. This project was managed with a JIRA Scrum board and a design tool called Figma to deliver the style guides and mockups.",
-      imageUrl: "/public/images/instock-mob.png",
+      imageUrl: "/images/instock-mob.png",
       tech: "REACT, JAVASCRIPT, EXPRESS, NODE, AXIOS, MySQL, SASS",
       clientUrl: "https://github.com/ariadnatoledo/dashing-doves-instock",
       serverUrl: "https://github.com/ariadnatoledo/dashing-doves-instock-api"
@@ -29,7 +29,7 @@ function ProjectDetailsPage() {
     3: {
       title: "Vinyl-O",
       description: "Developed a full-stack social media platform, managing the database (MySQL), server (Express), and client-side (React.js). Wrote technical documentation, resolved bugs, and troubleshoot issues to ensure the platform ran smoothly.",
-      imageUrl: "/public/images/vinilo-demo.png",
+      imageUrl: "/images/vinilo-demo.png",
       tech: "REACT, JAVASCRIPT, EXPRESS, NODE, MySQL, SOCKET.IO, BCRYPT, MULTER, SASS",
       clientUrl: "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone",
       serverUrl: "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone-api/tree/develop"
