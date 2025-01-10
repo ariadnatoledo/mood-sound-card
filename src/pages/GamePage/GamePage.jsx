@@ -1,5 +1,5 @@
 import "./GamePage.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useGameState } from "../../context/GameStateContext";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +10,7 @@ function GamePage() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true); // Player is X
   const [winner, setWinner] = useState(null);
+  const hasUnlockedProject = useRef(false);
 
   // Helper function to check if a move wins
   const isWinningMove = (board, player) => {
@@ -67,18 +68,36 @@ function GamePage() {
     newBoard[index] = 'X';
     setBoard(newBoard);
     setXIsNext(false); // Switch to computer's turn
-
-    if (isWinningMove(newBoard, 'X')) {
+  
+    // Only set winner if the player wins
+    if (isWinningMove(newBoard, 'X') && !winner) {
       setWinner('X');
     }
   };
 
   // Computer's move
-  const computerMove = () => {
-    const { index } = minimax(board, true);
-    if (index !== undefined) {
+  const computerMove = useCallback(() => {
+    const availableSpots = board
+      .map((val, idx) => (val === null ? idx : null))
+      .filter(val => val !== null);
+
+    // Decide if the computer should play strategically or randomly
+    const playRandom = Math.random() < 0.3; // 30% chance to play randomly
+
+    let moveIndex;
+
+    if (playRandom) {
+      // Choose a random move
+      moveIndex = availableSpots[Math.floor(Math.random() * availableSpots.length)];
+    } else {
+      // Use minimax for a strategic move
+      const { index } = minimax(board, true);
+      moveIndex = index;
+    }
+
+    if (moveIndex !== undefined) {
       const newBoard = [...board];
-      newBoard[index] = 'O';
+      newBoard[moveIndex] = 'O';
       setBoard(newBoard);
       setXIsNext(true);
 
@@ -86,7 +105,7 @@ function GamePage() {
         setWinner('O');
       }
     }
-  };
+  }, [board]);
 
   // Automatically trigger computer's turn
   useEffect(() => {
@@ -94,11 +113,22 @@ function GamePage() {
       const timer = setTimeout(() => computerMove(), 500); // Delay for better UX
       return () => clearTimeout(timer);
     }
-  }, [xIsNext, winner, board]);
+  }, [xIsNext, winner, board, computerMove]);
+
+  // Unlock the project and navigate to the projects section (only once when player wins)
+  useEffect(() => {
+    if (winner === 'X' && !hasUnlockedProject.current) {
+      hasUnlockedProject.current = true;
+      unlockProject(1); // Unlock level 1 after the player wins
+      setTimeout(() => {
+        navigate('/portfolio'); // Navigate to the projects page after a brief delay
+      }, 1500); // Added delay for smooth UX
+    }
+  }, [winner, unlockProject, navigate]);
 
   // Render a square
   const renderSquare = (index) => (
-    <button className="square" onClick={() => handleClick(index)}>
+    <button key={index} className="square" onClick={() => handleClick(index)}>
       {board[index]}
     </button>
   );
@@ -113,7 +143,7 @@ function GamePage() {
       </h3>
       <div className="board">
         {[0, 1, 2].map(row => (
-          <div key={row} className="row">
+          <div key={`row-${row}`} className="row">
             {[0, 1, 2].map(col => renderSquare(row * 3 + col))}
           </div>
         ))}
@@ -123,3 +153,4 @@ function GamePage() {
 }
 
 export default GamePage;
+
