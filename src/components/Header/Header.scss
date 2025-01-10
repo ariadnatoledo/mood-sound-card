@@ -4,11 +4,30 @@
 @use "../../styles/global" as *;
 
 .header {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
   padding: 1rem;
+
   &__title {
     color: white;
-    width: 50px;
+    width: 50px; 
     height: auto;
+  }
+
+  &__nav {
+    display: flex; 
+    gap: 1rem; 
+  }
+
+  &__link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;  
+
+    &:hover {
+      text-decoration: underline; 
+    }
   }
 }
 
