@@ -135,8 +135,7 @@ function GamePage() {
 
   return (
     <div className="game">
-      <h2>Current Level: {currentLevel}</h2>
-      <h3>
+      <h3 className="game-winner">
         {winner
           ? `CONGRATULATIONS! ${winner} Wins!`
           : `Next Player: ${xIsNext ? 'X (Player)' : 'O (Computer)'}`}
