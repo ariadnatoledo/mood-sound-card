@@ -20,23 +20,3 @@ function ProjectCard({ projectId, projectTitle, isUnlocked }) {
 }
 
 export default ProjectCard;
-
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import "./ProjectCard.scss";
-
-// function ProjectCard({ projectId, projectTitle, isUnlocked }) {
-//   return (
-//     <div className={`project-card ${isUnlocked ? "unlocked" : "locked"}`}>
-//       <h3>{projectTitle}</h3>
-//       {isUnlocked ? (
-//         <Link to={`/portfolio/${projectId}`}>View Project</Link>
-//       ) : (
-//         <button disabled>Locked</button>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default ProjectCard;
