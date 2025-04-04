@@ -18,7 +18,9 @@ function Portfolio() {
   const projects = [
     { id: 1, title: "BrainFlix", description: "Description of Project 1" },
     { id: 2, title: "InStock", description: "Description of Project 2" },
-    { id: 3, title: "Vinyl-O", description: "Description of Project 3" }
+    { id: 3, title: "Vinyl-O", description: "Description of Project 3" },
+    { id: 4, title: "Unité virtulle de soins", description: "Description of Project 4" }
+
   ];
 
   const handleProjectClick = (projectId) => {
