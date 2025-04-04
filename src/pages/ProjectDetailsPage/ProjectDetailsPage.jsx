@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./ProjectDetailsPage.scss";
 import gitHubClient from "../../assets/icons/client.png";
-import gitHubServer from "../../assets/icons/database.png"
+import gitHubServer from "../../assets/icons/database.png";
 
 function ProjectDetailsPage() {
   const { id } = useParams();
@@ -20,20 +20,34 @@ function ProjectDetailsPage() {
     },
     2: {
       title: "InStock",
-      description: "InStock is a full-stack React application brought to life by an Agile team of developers, to deliver a mock Inventory Management System for a Fortune 500 Client. The goal is to deliver a time-sensitive, full stack application with a modern React front-end communicating with a robust Express back-end. This project was managed with a JIRA Scrum board and a design tool called Figma to deliver the style guides and mockups.",
+      description:
+        "InStock is a full-stack React application brought to life by an Agile team of developers, to deliver a mock Inventory Management System for a Fortune 500 Client. The goal is to deliver a time-sensitive, full stack application with a modern React front-end communicating with a robust Express back-end. This project was managed with a JIRA Scrum board and a design tool called Figma to deliver the style guides and mockups.",
       imageUrl: "/images/instock-mob.png",
       tech: "REACT, JAVASCRIPT, EXPRESS, NODE, AXIOS, MySQL, SASS",
       clientUrl: "https://github.com/ariadnatoledo/dashing-doves-instock",
-      serverUrl: "https://github.com/ariadnatoledo/dashing-doves-instock-api"
+      serverUrl: "https://github.com/ariadnatoledo/dashing-doves-instock-api",
     },
     3: {
       title: "Vinyl-O",
-      description: "Developed a full-stack social media platform, managing the database (MySQL), server (Express), and client-side (React.js). Wrote technical documentation, resolved bugs, and troubleshoot issues to ensure the platform ran smoothly.",
+      description:
+        "Developed a full-stack social media platform, managing the database (MySQL), server (Express), and client-side (React.js). Wrote technical documentation, resolved bugs, and troubleshoot issues to ensure the platform ran smoothly.",
       imageUrl: "/images/vinilo-mobs.png",
       tech: "REACT, JAVASCRIPT, EXPRESS, NODE, MySQL, SOCKET.IO, BCRYPT, MULTER, SASS",
-      clientUrl: "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone",
-      serverUrl: "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone-api/tree/develop"
-
+      clientUrl:
+        "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone",
+      serverUrl:
+        "https://github.com/ariadnatoledo/ariadna-toledo-vinilo-capstone-api/tree/develop",
+    },
+    4: {
+      title: "Unité virtuelle de soins *IN CONSTRUCTION*",
+      description:
+        "Developed the React-based front-end and back end website for a virtual reality training platform for healthcare professionals, ensuring responsiveness and performance optimization. Translated CSS to Tailwind v3 and migrated the tablet version of the game to Tailwind v4, enhancing scalability and maintainability. Deployed the platform with CI/CD pipelines, streamlining development and ensuring continuous deliver. Designed and prototyped the web interface using Figma and HTML, delivering user-friendly and visually consistent experiences. Diagnosed and resolved bugs while scaling infrastructure, boosting application performance and reliability. Refactored the iPad version of the VR game, improving the editor and enhancing the overall user experience.",
+      imageUrl: "/images/v1-staging.jpg",
+      tech: "NEXT.JS, TAILWIND, SUPABASE",
+      clientUrl:
+        "#",
+      serverUrl:
+        "#",
     },
   }[id];
 
@@ -60,24 +74,24 @@ function ProjectDetailsPage() {
         <p>{project.tech}</p>
       </div>
       <div className="github-wrapper">
-      <div className="project-client">
-        <a href={project.clientUrl}>
-          <img
-            src={gitHubClient}
-            alt="GitHub Client"
-            className="github-client-image"
-          />
-        </a>
-      </div>
-      <div className="project-server">
-        <a href={project.serverUrl}>
-          <img
-            src={gitHubServer}
-            alt="GitHub Server"
-            className="github-server-image"
-          />
-        </a>
-      </div>
+        <div className="project-client">
+          <a href={project.clientUrl}>
+            <img
+              src={gitHubClient}
+              alt="GitHub Client"
+              className="github-client-image"
+            />
+          </a>
+        </div>
+        <div className="project-server">
+          <a href={project.serverUrl}>
+            <img
+              src={gitHubServer}
+              alt="GitHub Server"
+              className="github-server-image"
+            />
+          </a>
+        </div>
       </div>
     </div>
   );
