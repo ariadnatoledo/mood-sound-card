@@ -143,7 +143,7 @@ function GamePage() {
       <div className="board">
         {[0, 1, 2].map(row => (
           <div key={`row-${row}`} className="row">
-            {[0, 1, 2].map(col => renderSquare(row * 3 + col))}
+            {[0, 1, 2,].map(col => renderSquare(row * 3 + col))}
           </div>
         ))}
       </div>
