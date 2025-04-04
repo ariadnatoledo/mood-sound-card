@@ -42,12 +42,29 @@ function ProjectDetailsPage() {
       title: "Unité virtuelle de soins *IN CONSTRUCTION*",
       description:
         "Developed the React-based front-end and back end website for a virtual reality training platform for healthcare professionals, ensuring responsiveness and performance optimization. Translated CSS to Tailwind v3 and migrated the tablet version of the game to Tailwind v4, enhancing scalability and maintainability. Deployed the platform with CI/CD pipelines, streamlining development and ensuring continuous deliver. Designed and prototyped the web interface using Figma and HTML, delivering user-friendly and visually consistent experiences. Diagnosed and resolved bugs while scaling infrastructure, boosting application performance and reliability. Refactored the iPad version of the VR game, improving the editor and enhancing the overall user experience.",
-      imageUrl: "/images/v1-staging.jpg",
+      imageUrl: "/images/v2-staging.jpg",
       tech: "NEXT.JS, TAILWIND, SUPABASE",
-      clientUrl:
-        "#",
-      serverUrl:
-        "#",
+      clientUrl: "#",
+      serverUrl: "#",
+    },
+    5: {
+      title: "SimpleEQ *IN CONSTRUCTION*",
+      description:
+        "Developed my first simple EQ plugin with C++ and JUCE with simplest spectrum of human hearable frequencies, 20 hz to 20,000 Hz.",
+      imageUrl: "/images/simpleeq-2.jpeg",
+      tech: "C++, JUCE, Xcode",
+      clientUrl: "#",
+      serverUrl: "#",
+    },
+    6: {
+      title:
+        "Soundtrack for the short documentary SHIRINGA, Fashion Regenerating Amazonia, now streaming on WaterBear Network",
+      description:
+        "The short film follows the Awajún people of the Peruvian Amazon who work with caxacoristudio to create a bio-leather that supports their community, defends against deforestation, and offers the fashion industry a much needed alternative to the harmful animal-derived leather and plastic materials currently being used. Directed and produced by Emma Hakansson and featuring designer Mozhdeh Matin. We invite you to watch, be inspired, and then learn more about this material.",
+      imageUrl: "/images/shiringa.jpeg",
+      tech: "Ableton, Pro Tools",
+      clientUrl: "#",
+      serverUrl: "#",
     },
   }[id];
 
