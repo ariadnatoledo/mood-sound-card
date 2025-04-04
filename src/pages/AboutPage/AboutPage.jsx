@@ -11,32 +11,56 @@ function AboutPage() {
 
       <div className="about__container about__container--bio">
         <p className="about__subtitle">
-          I'm a software engineer with a background in sound design and audio
-          implementation. After 5+ years of solving complex challenges and
-          creating projects for film, I decided to pursue my passion for
-          technology.
+          I'm a software engineer and sound designer with background in film,
+          games and music. After 5+ years of solving complex challenges and
+          creating projects for film and music, I decided to pursue my passion
+          for technology.
           <p className="about__subtitle--1">
-            Through a 12-week coding bootcamp, I gained expertise in front-end
-            and back-end development and now focus on creating intuitive,
-            impactful software solutions. Transitioning into the tech field has
-            given me a unique blend of technical expertise and creative
-            problem-solving.
+            My passion for music started when I was little. Sundays at home were
+            all about my dad playing vinyl records—jazz, funk, you name it. One
+            day, after hearing jazz for the first time, I was hooked. My dad
+            noticed and gifted me my first instrument: an alto saxophone. That
+            saxophone became my best friend growing up. I went to classical
+            music school as a kid, and later, I joined the Jazz School in
+            Xalapa, Mexico. Music was my world. Then life happened—big moves,
+            big changes. I moved to Vancouver, BC, where I became a musician
+            (living the dream!), and then to Montreal, QC, where I studied sound
+            design for film and video games. That’s when things really took off.
+            After finishing my studies, I got the chance to work with a
+            well-known director in Montreal as a project development manager. It
+            was an incredible experience that even took me to Cannes Film
+            Festival in France! Honestly, it felt surreal.
           </p>
           <p className="about__subtitle--1">
-            I participated in three Hackathons, including one with{" "}
-            <strong>META</strong>. There, I led a team to develop the "Meta AI
-            Button," an innovative educational tool designed to help users
-            explore the potential of AI in personal and professional contexts.{" "}
+            But even with all these amazing moments in my career, something
+            still felt like it was missing. I’ve always been fascinated by
+            technology—how it works, how it can transform ideas—and I knew I
+            wanted to explore that side of myself. So, I took the leap and
+            joined a 12-week coding bootcamp. It was intense but so worth it! I
+            learned front-end and back-end development and started creating
+            software solutions that feel as intuitive as they are impactful..
+            Since then, I’ve participated in three hackathons, including one
+            with Meta. At Meta’s hackathon, I led a team to create the "Meta AI
+            Button," an educational tool that helps people explore AI’s
+            potential in their personal and professional lives.{" "}
           </p>
           <p className="about__subtitle--1">
-            My goal is to build innovative solutions, foster collaboration, be
-            an adaptable leader, and drive impactful results for your team.
+            Right now, I'm working on my own app called "Vinil-o" (although the
+            name might change—I’m still figuring that part out). It’s a passion
+            project inspired by my love for music and technology, and I’m taking
+            my time to build something truly special. My goal is to launch it
+            around 2026 or 2027.
           </p>
-        </p>
-
-        <p className="about__subtitle--1">
-          Additionally, everything I create incorporates an audio experience to
-          calm your mind and improve the overall user experience.
+          <p className="about__subtitle--1">
+            On top of that, I'm freelancing for a university in Québec on a VR
+            game designed for nurse practitioners. It’s such a cool
+            project—combining fun with education—and it’s exciting to see how VR
+            can make learning more immersive. Looking back at everything so far,
+            my life has been one big adventure—and honestly? I'm just getting
+            started. Whether it's music, film, or tech, I'm all about diving
+            into new challenges and creating things that connect with people.
+            And wherever fun and adventure call? You can bet I'll be there!
+          </p>
         </p>
       </div>
 
